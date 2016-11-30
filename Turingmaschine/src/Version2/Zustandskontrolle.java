@@ -40,9 +40,9 @@ public class Zustandskontrolle {
 		while(uebergangsfunktion[0].equals("0")) {
 			schreibeZeichenAufBaender(uebergangsfunktion);
 			bewegeSchreibkoepfe(uebergangsfunktion);
+			anzahlSchritte++;
 			baenderAusgeben();
 			uebergangsfunktion = splitUebergangsfunktion(q0.gibUebergang(gibGeleseneZeichen()));
-			anzahlSchritte++;
 		}
 		zustandsUebergangQ0zuQ1();
 	}
@@ -52,9 +52,9 @@ public class Zustandskontrolle {
 		while(uebergangsfunktion[1].equals("0")){
 			schreibeZeichenAufBaender(uebergangsfunktion);
 			bewegeSchreibkoepfe(uebergangsfunktion);
+			anzahlSchritte++;
 			baenderAusgeben();
 			uebergangsfunktion = splitUebergangsfunktion(q1.gibUebergang(gibGeleseneZeichen()));
-			anzahlSchritte++;
 		}
 		zustandsUebergangQ1zuQ2();
 	}
@@ -64,9 +64,9 @@ public class Zustandskontrolle {
 		while((uebergangsfunktion[0].equals("_") && uebergangsfunktion[0].equals("_")) || (uebergangsfunktion[0].equals("1") && uebergangsfunktion[0].equals("_"))){
 			schreibeZeichenAufBaender(uebergangsfunktion);
 			bewegeSchreibkoepfe(uebergangsfunktion);
+			anzahlSchritte++;
 			baenderAusgeben();
 			uebergangsfunktion = splitUebergangsfunktion(q2.gibUebergang(gibGeleseneZeichen()));
-			anzahlSchritte++;
 		}
 		zustandsUebergangQ2zuQ3();
 	}
@@ -76,9 +76,9 @@ public class Zustandskontrolle {
 		while(uebergangsfunktion[1].equals("0") && uebergangsfunktion[0].equals("0")){
 			schreibeZeichenAufBaender(uebergangsfunktion);
 			bewegeSchreibkoepfe(uebergangsfunktion);
+			anzahlSchritte++;
 			baenderAusgeben();
 			uebergangsfunktion = splitUebergangsfunktion(q3.gibUebergang(gibGeleseneZeichen()));
-			anzahlSchritte++;
 			ergebnis++;
 		}
 		if(uebergangsfunktion[0].equals("0") || uebergangsfunktion[1].equals("_")) {
@@ -94,9 +94,9 @@ public class Zustandskontrolle {
 		while(uebergangsfunktion[2].equals("0")){
 			schreibeZeichenAufBaender(uebergangsfunktion);
 			bewegeSchreibkoepfe(uebergangsfunktion);
+			anzahlSchritte++;
 			baenderAusgeben();
 			uebergangsfunktion = splitUebergangsfunktion(q4.gibUebergang(gibGeleseneZeichen()));
-			anzahlSchritte++;
 			ergebnis++;
 		}
 		if(uebergangsfunktion[0].equals("0")) {
@@ -108,12 +108,8 @@ public class Zustandskontrolle {
 	}
 	
 	private void zustand5() {
-		band1.bandinhaltAusgeben();
-		band2.bandinhaltAusgeben();
-		band3.bandinhaltAusgeben();
 		System.out.println("Wort akzeptiert");
 		System.out.println("Ergebnis: " + ergebnis);
-		System.out.println("Anzahl Schritte: " + anzahlSchritte);
 
 	}
 	
@@ -132,6 +128,7 @@ public class Zustandskontrolle {
 			band1.bandinhaltAusgeben();
 			band2.bandinhaltAusgeben();
 			band3.bandinhaltAusgeben();
+			System.out.println("Anzahl Schritte: " + anzahlSchritte);
 			System.out.println();
 		}
 	}
@@ -147,8 +144,8 @@ public class Zustandskontrolle {
 		schreibeZeichenAufBaender(uebergangsfunktion);
 		bewegeSchreibkoepfe(uebergangsfunktion);
 		ersetzeAlteMitNeuenZustaenden("q1");
-		baenderAusgeben();
 		anzahlSchritte++;
+		baenderAusgeben();
 		zustand1();
 	}
 	
@@ -157,8 +154,8 @@ public class Zustandskontrolle {
 		schreibeZeichenAufBaender(uebergangsfunktion);
 		bewegeSchreibkoepfe(uebergangsfunktion);
 		ersetzeAlteMitNeuenZustaenden("q2");
-		baenderAusgeben();
 		anzahlSchritte++;
+		baenderAusgeben();
 		zustand2();
 	}
 	
@@ -167,8 +164,8 @@ public class Zustandskontrolle {
 		schreibeZeichenAufBaender(uebergangsfunktion);
 		bewegeSchreibkoepfe(uebergangsfunktion);
 		ersetzeAlteMitNeuenZustaenden("q3");
-		baenderAusgeben();
 		anzahlSchritte++;
+		baenderAusgeben();
 		zustand3();
 	}
 	
@@ -177,8 +174,8 @@ public class Zustandskontrolle {
 		schreibeZeichenAufBaender(uebergangsfunktion);
 		bewegeSchreibkoepfe(uebergangsfunktion);
 		ersetzeAlteMitNeuenZustaenden("q4");
-		baenderAusgeben();
 		anzahlSchritte++;
+		baenderAusgeben();
 		zustand4();
 	}
 	
@@ -187,8 +184,8 @@ public class Zustandskontrolle {
 		schreibeZeichenAufBaender(uebergangsfunktion);
 		bewegeSchreibkoepfe(uebergangsfunktion);
 		ersetzeAlteMitNeuenZustaenden("q5");
-		baenderAusgeben();
 		anzahlSchritte++;
+		baenderAusgeben();
 		zustand5();
 	}
 	
@@ -197,8 +194,8 @@ public class Zustandskontrolle {
 		schreibeZeichenAufBaender(uebergangsfunktion);
 		bewegeSchreibkoepfe(uebergangsfunktion);
 		ersetzeAlteMitNeuenZustaenden("q3");
-		baenderAusgeben();
 		anzahlSchritte++;
+		baenderAusgeben();
 		zustand3();
 	}
 	
@@ -207,8 +204,8 @@ public class Zustandskontrolle {
 		schreibeZeichenAufBaender(uebergangsfunktion);
 		bewegeSchreibkoepfe(uebergangsfunktion);
 		ersetzeAlteMitNeuenZustaenden("q5");
-		baenderAusgeben();
 		anzahlSchritte++;
+		baenderAusgeben();
 		zustand5();
 	}
 	
