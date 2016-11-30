@@ -11,8 +11,8 @@ public class Band {
 	}
 	
 	private void initialisiereBand() {
-		for(int i = 0; i < 30; i++) {
-			if(i == 14) {
+		for(int i = 0; i < 31; i++) {
+			if(i == 15) {
 				bandinhalt.add(i, "q0");
 			}
 			else {
@@ -23,12 +23,12 @@ public class Band {
 	
 	public Band(ArrayList<String> bandinhalt) {
 		initialisiereBand();
-		for(int i = 15; i < bandinhalt.size()+15; i++){
+		for(int i = 16; i < bandinhalt.size()+16; i++){
 			if(this.bandinhalt.size() > i) {
-				this.bandinhalt.set(i, bandinhalt.get(i-15));
+				this.bandinhalt.set(i, bandinhalt.get(i-16));
 			}
 			else {
-				this.bandinhalt.add(i, bandinhalt.get(i-15));
+				this.bandinhalt.add(i, bandinhalt.get(i-16));
 			}
 		}
 	}
@@ -53,10 +53,10 @@ public class Band {
 	
 	
 	public void bandinhaltAusgeben() {
-		if(getPositionVonSchreibkopf() -14 > 0) {
+		if(getPositionVonSchreibkopf() -15 < 0) {
 			bandinhalt.add(0, "_");
 		}
-		int bandAusgabeAnfang = getPositionVonSchreibkopf() -14;
+		int bandAusgabeAnfang = getPositionVonSchreibkopf() -15;
 		int positionVonSchreibkpf = getPositionVonSchreibkopf();
 		//bandinhalt vor schreibkopf ausgeben
 		for(int i = bandAusgabeAnfang; i < positionVonSchreibkpf; i++) {
@@ -64,7 +64,7 @@ public class Band {
 			System.out.print(bandinhalt.get(i));
 		}
 		// bandinhalt nach schreibkopf ausgeben
-		int bandAusgabeEnde = getPositionVonSchreibkopf() + 15;
+		int bandAusgabeEnde = getPositionVonSchreibkopf() + 16;
 		for(int i = getPositionVonSchreibkopf(); i < bandAusgabeEnde; i++) {
 			System.out.print("|");
 			System.out.print(bandinhalt.get(i));
